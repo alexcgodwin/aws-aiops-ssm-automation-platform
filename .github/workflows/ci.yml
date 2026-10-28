@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with: { persist-credentials: false }
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with: { python-version: '3.12' }
       - name: Unit tests (no AWS credentials)
         run: python -m unittest discover -s tests -v
@@ -37,9 +37,9 @@ jobs:
       run:
         working-directory: terraform/${{ matrix.stack }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with: { persist-credentials: false }
-      - uses: hashicorp/setup-terraform@v3
+      - uses: hashicorp/setup-terraform@v4
         with:
           terraform_version: '~> 1.9'
           terraform_wrapper: false

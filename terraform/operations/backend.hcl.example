@@ -1,0 +1,5 @@
+bucket       = "approved-terraform-state-bucket"
+key          = "aiops/operations/dev.tfstate"
+region       = "ca-central-1"
+encrypt      = true
+use_lockfile = true

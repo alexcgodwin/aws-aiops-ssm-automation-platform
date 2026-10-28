@@ -1,0 +1,22 @@
+{
+  "version": "0",
+  "id": "c4c1c1c9-6542-e61b-6ef0-8c4d36933a92",
+  "detail-type": "CloudWatch Alarm State Change",
+  "source": "aws.cloudwatch",
+  "account": "123456789012",
+  "time": "2026-10-27T20:00:00Z",
+  "region": "ca-central-1",
+  "resources": [
+    "arn:aws:cloudwatch:ca-central-1:123456789012:alarm:ops-aiops-prod-cpu"
+  ],
+  "detail": {
+    "alarmName": "ops-aiops-prod-cpu",
+    "state": {
+      "value": "ALARM",
+      "reason": "Synthetic test event; no live infrastructure."
+    },
+    "previousState": {
+      "value": "OK"
+    }
+  }
+}

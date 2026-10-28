@@ -1,0 +1,11 @@
+aws_region                    = "ca-central-1"
+project                       = "ops-aiops"
+environment                   = "dev"
+alarm_prefix                  = "ops-aiops-"
+enable_bedrock                = false
+enable_incident_notifications = false
+enable_patch_window           = false
+enable_demo_alarm             = false
+demo_instance_id              = ""
+retention_days                = 30
+patch_group                   = "aiops-canary"

@@ -1,0 +1,51 @@
+name: AIOps Infrastructure and Safety CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: aiops-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  python-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { persist-credentials: false }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Unit tests (no AWS credentials)
+        run: python -m unittest discover -s tests -v
+      - name: Offline incident simulation
+        run: python scripts/aiops_cli.py rca
+      - name: Runbook review freshness
+        run: python scripts/check_runbooks.py
+      - name: Tracked-file hygiene
+        run: python scripts/check_repository.py
+  terraform-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        stack: [operations, fleet]
+    defaults:
+      run:
+        working-directory: terraform/${{ matrix.stack }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { persist-credentials: false }
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: '~> 1.9'
+          terraform_wrapper: false
+      - name: Terraform formatting
+        run: terraform fmt -check -recursive
+      - name: Provider installation without cloud backend
+        run: terraform init -backend=false -input=false -no-color
+      - name: Validate against pinned provider schema
+        run: terraform validate -no-color

@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "agents": {
+    "triage-assistant": {
+      "allowed_actions": [
+        "read_alarm_metadata",
+        "draft_incident_summary",
+        "draft_rca"
+      ],
+      "approval_required": []
+    },
+    "runbook-curator": {
+      "allowed_actions": [
+        "read_runbooks",
+        "propose_runbook_update"
+      ],
+      "approval_required": []
+    },
+    "maintenance-operator": {
+      "allowed_actions": [
+        "read_patch_compliance",
+        "request_runbook_execution"
+      ],
+      "approval_required": [
+        "request_runbook_execution"
+      ]
+    }
+  },
+  "defaults": {
+    "deny_unknown_agents": true,
+    "deny_unknown_actions": true,
+    "execute_without_human_review": false
+  }
+}

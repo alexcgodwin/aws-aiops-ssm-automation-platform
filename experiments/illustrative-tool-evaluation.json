@@ -1,0 +1,9 @@
+{
+  "purpose": "Example scoring demonstration only; values are hypothetical, not test results",
+  "evaluation_context": "Compare log and telemetry tooling using pilot metrics and security reviews",
+  "candidates": [
+    {"name": "CloudWatch Agent", "evidence_type": "illustrative_only", "scores": {"security": 4.1, "operability": 4.0, "cost": 3.5, "reliability": 4.0, "integration": 4.2}},
+    {"name": "OpenTelemetry Collector", "evidence_type": "illustrative_only", "scores": {"security": 4.2, "operability": 3.5, "cost": 3.8, "reliability": 4.2, "integration": 4.8}},
+    {"name": "Unreviewed log forwarder", "evidence_type": "illustrative_only", "scores": {"security": 1.5, "operability": 4.8, "cost": 4.8, "reliability": 3.7, "integration": 4.0}}
+  ]
+}

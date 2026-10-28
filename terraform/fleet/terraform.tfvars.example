@@ -1,0 +1,4 @@
+aws_region            = "ca-central-1"
+enable_canary         = false
+allow_approved_reboot = false
+patch_group           = "aiops-canary"

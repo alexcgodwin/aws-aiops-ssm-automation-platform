@@ -13,9 +13,9 @@ def draft_rca(assessment: Mapping[str, Any], ai_draft: str | None = None) -> str
         "The alarm entered ALARM. This does not establish customer impact, "
         "root cause, or a successful remediation."
     )
-    return f"""# Draft Incident RCA — {event_id}
+    return f"""# Draft Incident RCA: {event_id}
 
-**Status:** DRAFT — NOT VERIFIED
+**Status:** DRAFT: NOT VERIFIED
 **Alarm:** {alarm}
 **First observed:** {time}
 **Suggested triage priority:** {assessment['priority']}

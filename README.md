@@ -1,6 +1,6 @@
 # AWS Enterprise AIOps & Systems Manager Automation Platform
 
-> **Senior-level AWS operations engineering reference** — incident triage, approval-gated SSM runbooks, private session access, patch governance, optional Bedrock-assisted RCA drafts and measured tool-selection methodology.
+> **AWS operations engineering reference**: incident triage, approval-gated SSM runbooks, private session access, patch governance, optional Bedrock-assisted RCA drafts and measured tool-selection methodology.
 
 [![CI](https://github.com/alexcgodwin/aws-aiops-ssm-automation-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/alexcgodwin/aws-aiops-ssm-automation-platform/actions/workflows/ci.yml)
 ![AWS](https://img.shields.io/badge/AWS-Operations-FF9900)
@@ -80,7 +80,7 @@ scripts/                      Offline CLI, hygiene check, runbook freshness test
 docs/                         Architecture, threat model, rollout, cost, runbooks, ADRs
 ```
 
-## Quick start — zero cloud usage
+## Quick start (no cloud resources required)
 
 Python 3.10+ and Terraform 1.6+:
 
